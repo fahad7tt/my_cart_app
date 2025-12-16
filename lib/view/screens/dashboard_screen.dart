@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -44,15 +46,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
   IconData _getCategoryIcon(String category) {
     switch (category.toLowerCase()) {
       case 'electronics':
-        return Icons.devices;
+        return Icons.headset_outlined;
       case 'jewelery':
         return Icons.diamond;
       case "men's clothing":
-        return Icons.checkroom;
+        return Icons.boy_outlined;
       case "women's clothing":
-        return Icons.female;
+        return Icons.girl_outlined;
       default:
         return Icons.category;
+    }
+  }
+
+  String _getCategoryImage(String category) {
+    switch (category.toLowerCase()) {
+      case 'electronics':
+        return 'assets/images/electronics.jpg';
+      case 'jewelery':
+        return 'assets/images/jewellery.jpg';
+      case "men's clothing":
+        return 'assets/images/mens cloth.jpg';
+      case "women's clothing":
+        return 'assets/images/womens cloth.jpg';
+      default:
+        return 'assets/images/men_shoe.jpg';
     }
   }
 
@@ -113,64 +130,87 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   const SizedBox(height: 24),
                   Container(
-                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.orange.shade400, Colors.deepOrange.shade600],
-                      ),
                       borderRadius: BorderRadius.circular(16),
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/men_shoe.jpg'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'Super Sale',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Super Sale',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                'Discount',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
+                                const Text(
+                                  'Discount',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Up to 50%',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Up to ',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '50%',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 12),
-                              Text(
-                                'Shop Now',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
+                                SizedBox(height: 2),
+                                ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.orange,
+                                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(22),
+                                    ),
+                                    elevation: 0,
+                                  ),
+                                  child: const Text(
+                                    'Shop Now',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        Container(
-                          height: 120,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.white24,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Icon(Icons.shopping_bag, color: Colors.white, size: 50),
-                        ),
-                      ],
+                          const SizedBox(width: 8),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -180,15 +220,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       return Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(11),
                             decoration: BoxDecoration(
                               color: Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(28),
                             ),
                             child: Icon(
                               _getCategoryIcon(category),
-                              size: 28,
-                              color: Colors.orange,
+                              size: 29,
+                              color: Colors.black,
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -197,6 +237,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 ? '${category.substring(0, 8)}...'
                                 : category,
                             style: TextStyle(
+                              fontWeight: FontWeight.w500,
                               fontSize: 10,
                               color: Colors.grey.shade700,
                             ),
@@ -218,7 +259,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       TextButton(
                         onPressed: () {},
-                        child: const Text('See all'),
+                        child: const Text('See all', style: TextStyle(color: Colors.grey)),
                       ),
                     ],
                   ),
@@ -250,7 +291,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const CartScreen()),
-            );
+            ).then((_) {
+              // When returning from the cart screen, reset selected index to home
+              setState(() {
+                _selectedIndex = 0;
+              });
+            });
           }
         },
         type: BottomNavigationBarType.fixed,
@@ -300,10 +346,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
                     ),
                     child: Center(
-                      child: Icon(
-                        _getCategoryIcon(category),
-                        size: 60,
-                        color: Colors.orange,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          _getCategoryImage(category),
+                          width: 160,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

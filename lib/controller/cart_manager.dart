@@ -10,12 +10,12 @@ class CartManager {
 
   List<CartItem> get items => _cartItems;
 
-  void addToCart(Product product) {
+  void addToCart(Product product, {int quantity = 1}) {
     int index = _cartItems.indexWhere((item) => item.product.id == product.id);
     if (index != -1) {
-      _cartItems[index].quantity++;
+      _cartItems[index].quantity += quantity;
     } else {
-      _cartItems.add(CartItem(product: product, quantity: 1));
+      _cartItems.add(CartItem(product: product, quantity: quantity));
     }
   }
 

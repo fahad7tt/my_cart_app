@@ -54,10 +54,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   void _addToCart() {
     if (product != null) {
-      CartManager().addToCart(product!);
+      CartManager().addToCart(product!, quantity: quantity);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Added to cart!'),
+          content: Center(child: Text('Added to cart!')),
           duration: Duration(seconds: 2),
           backgroundColor: Colors.green,
         ),
@@ -170,7 +170,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          '\${product!.price.toStringAsFixed(2)}',
+                          '\$${product!.price.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
