@@ -168,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _socialButton(Icons.g_mobiledata, Colors.red),
+                    _socialButtonWithImage('assets/icons/google.webp'),
                     const SizedBox(width: 16),
                     _socialButton(Icons.apple, Colors.black),
                     const SizedBox(width: 16),
@@ -204,7 +204,18 @@ class _LoginScreenState extends State<LoginScreen> {
         border: Border.all(color: Colors.grey.shade300),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Icon(icon, color: color, size: 28),
+      child: Icon(icon, color: color, size: 29),
+    );
+  }
+
+  Widget _socialButtonWithImage(String imagePath) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey.shade300),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Image.asset(imagePath, width: 27, height: 28),
     );
   }
 }

@@ -65,17 +65,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
         title: Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(9),
               decoration: BoxDecoration(
-                color: Colors.orange.shade50,
-                borderRadius: BorderRadius.circular(8),
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Icon(Icons.grid_view, color: Colors.orange),
+              child: Icon(Icons.grid_view_rounded, color: Colors.black),
             ),
             const Spacer(),
-            IconButton(
-              icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-              onPressed: () {},
+            Container(
+              padding: const EdgeInsets.all(9),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Icon(Icons.notifications_outlined, color: Colors.black),
             ),
           ],
         ),
@@ -92,25 +96,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            hintText: 'Search',
+                            hintText: 'Search...',
+                            hintStyle: TextStyle(color: Colors.grey.shade400),
                             prefixIcon: const Icon(Icons.search),
+                            suffixIcon: const Icon(Icons.filter_list),
                             filled: true,
-                            fillColor: Colors.grey.shade100,
+                            fillColor: Colors.grey.shade200,
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(28),
                               borderSide: BorderSide.none,
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade100,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Icon(Icons.tune, color: Colors.grey.shade700),
                       ),
                     ],
                   ),
@@ -258,12 +255,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.orange,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite_outline), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outlined), label: ''),
         ],
       ),
     );
