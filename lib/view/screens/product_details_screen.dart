@@ -252,12 +252,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ),
                         ),
                         const SizedBox(height: 24),
-                        Row(
-                          children: [
-                            _buildTab('Description', 0),
-                            _buildTab('Specifications', 1),
-                            _buildTab('Reviews', 2),
-                          ],
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              _buildTab('Description', 0),
+                              _buildTab('Specifications', 1),
+                              _buildTab('Reviews', 2),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 16),
                         Text(
