@@ -66,17 +66,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Text(
                   'Hello Again!',
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 10),
                 Text(
                   'Welcome back you\'ve\nbeen missed!',
                   style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade600,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -125,7 +125,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {},
-                    child: const Text('Recovery Password'),
+                    child: const Text(
+                      'Recovery Password',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 24),
@@ -150,15 +153,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 24),
                 Row(
                   children: [
-                    Expanded(child: Divider(color: Colors.grey.shade300)),
+                    Expanded(child: Divider(color: Colors.black)),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
                         'or continue with',
-                        style: TextStyle(color: Colors.grey.shade600),
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
-                    Expanded(child: Divider(color: Colors.grey.shade300)),
+                    Expanded(child: Divider(color: Colors.black)),
                   ],
                 ),
                 const SizedBox(height: 24),
@@ -176,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Not a member? '),
+                    const Text('Not a member?'),
                     TextButton(
                       onPressed: () {},
                       child: const Text(
